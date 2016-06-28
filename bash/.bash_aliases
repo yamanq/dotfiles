@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -24,3 +25,5 @@ alias mkfile='touch'
 alias more='less'
 
 alias ijulia='ssh gregory4 -N -L localhost:8888:localhost:8888'
+
+alias sac='source env/bin/activate'

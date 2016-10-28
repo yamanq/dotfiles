@@ -38,9 +38,12 @@ values."
      python
      html
      javascript
+     ess
+     c-c++
+     ruby
      ;; Markup
-     markdown
-     org
+     ;; markdown
+     ;; org
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

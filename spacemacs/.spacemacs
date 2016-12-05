@@ -57,7 +57,8 @@ values."
      c-c++
      ruby
      ;; Markup
-     ;; markdown
+     markdown
+     yaml
      ;; org
      )
    ;; List of additional packages that will be installed without being

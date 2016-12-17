@@ -56,6 +56,7 @@ values."
      ess
      c-c++
      ruby
+     react
      ;; Markup
      markdown
      yaml

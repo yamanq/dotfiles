@@ -32,7 +32,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -58,9 +57,11 @@ values."
      ruby
      react
      go
+     php
      ;; Markup
      markdown
      yaml
+     csv
      ;; org
      )
    ;; List of additional packages that will be installed without being

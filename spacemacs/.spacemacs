@@ -58,6 +58,7 @@ values."
      react
      go
      php
+     rust
      ;; Markup
      markdown
      yaml

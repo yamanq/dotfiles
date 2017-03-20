@@ -319,6 +319,8 @@ you should place your code here."
   (setq js2-basic-offset 2
         js-indent-level 2)
   (setq css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2
+        web-mode-code-indent-offset 2)
   ;; Go mode
   (add-hook 'go-mode-hook (lambda () (clean-aindent-mode -1)))
   (setq gofmt-command "goimports")

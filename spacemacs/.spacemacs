@@ -57,8 +57,8 @@ values."
      ruby
      react
      go
-     php
      rust
+     octave
      ;; Markup
      markdown
      yaml

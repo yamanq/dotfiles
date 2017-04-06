@@ -326,6 +326,8 @@ you should place your code here."
   (add-hook 'go-mode-hook (lambda () (clean-aindent-mode -1)))
   (setq gofmt-command "goimports")
   (setq go-tab-width 4)
+  ;; Octave mode
+  (setq comment-start "%")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

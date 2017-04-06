@@ -316,6 +316,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Emacs general config
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+  (setq vc-follow-symlinks t)
+  (global-visual-line-mode t)
   ;; Web mode
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-basic-offset 2

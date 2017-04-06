@@ -58,6 +58,7 @@ values."
      react
      go
      rust
+     scheme
      octave
      ;; Markup
      markdown

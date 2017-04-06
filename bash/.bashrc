@@ -97,9 +97,19 @@ if ! shopt -oq posix; then
   fi
 fi
 source /etc/bash_completion.d/password-store
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$HOME/.gem/ruby/1.9.1/bin
 export EDITOR=vim
+
+# Path magics
+export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin
+# Install global NPM packages locally
+NPM_PACKAGES="${HOME}/.npmglobal"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH="$PATH:$HOME/go/bin"
+
 
 # Usage command for examples in man pages
 eg(){
@@ -107,11 +117,6 @@ eg(){
     | sed --quiet --expression='/^E\(\x08.\)X\(\x08.\)\?A\(\x08.\)\?M\(\x08.\)\?P\(\x08.\)\?L\(\x08.\)\?E/{:a;p;n;/^[^ ]/q;ba}' \
     | ${MANPAGER:-${PAGER:-pager -s}}
 }
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 # virtualenvwrapper
 if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then

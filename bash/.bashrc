@@ -96,7 +96,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-source /etc/bash_completion.d/password-store
 export EDITOR=vim
 
 # Path magics

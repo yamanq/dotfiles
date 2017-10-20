@@ -98,16 +98,18 @@ if ! shopt -oq posix; then
 fi
 export EDITOR=vim
 
-# Path magics
-export PATH=$PATH:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin
 # Install global NPM packages locally
 NPM_PACKAGES="${HOME}/.npmglobal"
 export PATH="$PATH:$NPM_PACKAGES/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export GOPATH=$HOME/go
-export PATH="$PATH:$HOME/go/bin"
+# Go paths
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+# Path magics
+export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin"
 
 
 # Usage command for examples in man pages

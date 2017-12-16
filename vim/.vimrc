@@ -1,25 +1,21 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'gregsexton/MatchTag'
-Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
-Plugin 'skammer/vim-css-color'
-Plugin 'mattn/emmet-vim'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'flazz/vim-colorschemes'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/MatchTag'
+Plug 'godlygeek/tabular'
+Plug 'kien/ctrlp.vim'
+Plug 'skammer/vim-css-color'
+Plug 'mattn/emmet-vim'
+Plug 'fatih/vim-go'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 let g:syntastic_python_checkers = ['flake8']
 let g:ycm_autoclose_preview_window_after_completion=1

@@ -69,5 +69,6 @@ inoremap kj <Esc>
 map :W :w
 map :Q :q
 
+"Hack to hide toolbar and scrollbars
 set guioptions+=lrb
 set guioptions-=lrb

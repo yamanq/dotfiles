@@ -44,8 +44,7 @@ filetype plugin indent on
 
 set t_Co=256
 colorscheme Tomorrow-Night
-"colorscheme summerfruit256
-set guifont=Droid\ Sans\ Mono\ 10
+set guifont=Source\ Code\ Pro\ Semibold\ 10:Droid\ Sans\ Mono\ 10
 
 set guioptions-=L
 set guioptions=-l

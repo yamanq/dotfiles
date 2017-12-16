@@ -49,14 +49,33 @@ set guifont=Source\ Code\ Pro\ Semibold\ 10:Droid\ Sans\ Mono\ 10
 set guioptions-=L
 set guioptions=-l
 
-"Set file-specific tabbing rules
 au BufNewFile,BufRead *.ejs set filetype=html
-autocmd FileType html setlocal tabstop=2
+
+"Set file-specific tabbing rules
+autocmd FileType coffee setlocal shiftwidth=2
+autocmd FileType coffee setlocal softtabstop=2
+autocmd FileType coffee setlocal tabstop=2
+autocmd FileType css setlocal shiftwidth=2
+autocmd FileType css setlocal softtabstop=2
+autocmd FileType css setlocal tabstop=2
 autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal softtabstop=2
-autocmd FileType js setlocal tabstop=2
+autocmd FileType html setlocal tabstop=2
 autocmd FileType js setlocal shiftwidth=2
 autocmd FileType js setlocal softtabstop=2
+autocmd FileType js setlocal tabstop=2
+autocmd FileType nim setlocal shiftwidth=2
+autocmd FileType nim setlocal softtabstop=2
+autocmd FileType nim setlocal tabstop=2
+autocmd FileType ruby setlocal shiftwidth=2
+autocmd FileType ruby setlocal softtabstop=2
+autocmd FileType ruby setlocal tabstop=2
+autocmd FileType scss setlocal shiftwidth=2
+autocmd FileType scss setlocal softtabstop=2
+autocmd FileType scss setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal softtabstop=2
+autocmd FileType yaml setlocal tabstop=2
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k

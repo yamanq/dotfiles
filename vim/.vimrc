@@ -14,6 +14,7 @@ Plugin 'gregsexton/MatchTag'
 Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'skammer/vim-css-color'
+Plugin 'mattn/emmet-vim'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 

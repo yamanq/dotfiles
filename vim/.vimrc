@@ -22,8 +22,8 @@ call vundle#end()
 filetype plugin indent on
 
 let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_python_flake8_post_args='--ignore=E121,E111'
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:go_fmt_command = "goimports"
 
 set hlsearch
 set incsearch

@@ -101,8 +101,6 @@ export EDITOR=vim
 # Install global NPM packages locally
 NPM_PACKAGES="${HOME}/.npmglobal"
 export PATH="$NPM_PACKAGES/bin:$PATH"
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # Go paths

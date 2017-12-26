@@ -27,3 +27,6 @@ alias more='less'
 alias ijulia='ssh gregory4 -N -L localhost:8888:localhost:8888'
 
 alias sac='source env/bin/activate'
+
+alias em='emacsclient -cn'
+alias et='emacsclient -t'

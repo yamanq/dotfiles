@@ -29,3 +29,6 @@ alias sac='source env/bin/activate'
 
 alias em='emacsclient -cn'
 alias et='emacsclient -t'
+
+# Ruby
+alias bx='bundle exec'

@@ -100,7 +100,7 @@ export EDITOR=vim
 
 # Install global NPM packages locally
 NPM_PACKAGES="${HOME}/.npmglobal"
-export PATH="$PATH:$NPM_PACKAGES/bin"
+export PATH="$NPM_PACKAGES/bin:$PATH"
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 ### Added by the Heroku Toolbelt
@@ -109,7 +109,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 # Path magics
-export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin"
+export PATH="$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
 
 
 # Usage command for examples in man pages

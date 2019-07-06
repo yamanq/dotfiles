@@ -60,11 +60,13 @@ This function should only modify configuration layer settings."
      ess
      c-c++
      ruby
+     ruby-on-rails
      react
      go
      rust
      scheme
      octave
+     common-lisp
      ;; Markup
      markdown
      yaml

@@ -105,6 +105,10 @@ eg(){
     | ${MANPAGER:-${PAGER:-pager -s}}
 }
 
+playlist(){
+    youtube-dl -ciw --extract-audio --audio-format mp3 --add-metadata -o "%(playlist_index)s - %(title)s.%(ext)s" "$1"
+}
+
 # virtualenvwrapper
 if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs

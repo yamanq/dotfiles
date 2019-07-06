@@ -478,6 +478,8 @@ before packages are loaded."
   (setq go-tab-width 4)
   ;; Octave mode
   (setq comment-start "%")
+  ;; Org mode
+  (setq org-agenda-files (list "~/org/todo.org"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

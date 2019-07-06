@@ -91,6 +91,9 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 # Go paths
 export GOPATH="$HOME/go"
+# Ruby paths
+export GEM_HOME="$HOME/.gem"
+export PATH="$GEM_HOME/ruby/2.4.0/bin:$PATH"
 # Path magics
 export PATH="$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
 

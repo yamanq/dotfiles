@@ -95,7 +95,7 @@ export GOPATH="$HOME/go"
 export GEM_HOME="$HOME/.gem"
 export PATH="$GEM_HOME/ruby/2.4.0/bin:$PATH"
 # Path magics
-export PATH="$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
+export PATH="$HOME/bin:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
 
 
 # Usage command for examples in man pages

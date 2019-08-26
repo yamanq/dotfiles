@@ -521,6 +521,7 @@ before packages are loaded."
         web-mode-code-indent-offset 2)
   ;; Go mode
   (add-hook 'go-mode-hook (lambda () (clean-aindent-mode -1)))
+  (setq go-format-before-save t)
   (setq gofmt-command "goimports")
   (setq go-tab-width 4)
   ;; Octave mode

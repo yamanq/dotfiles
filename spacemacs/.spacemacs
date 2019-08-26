@@ -527,6 +527,13 @@ before packages are loaded."
   (setq comment-start "%")
   ;; Org mode
   (setq org-agenda-files (list "~/org/todo.org"))
+  ;; Persistent undo mode
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))
+  (setq undo-tree-history-directory-alist
+        `(("." . ,(concat spacemacs-cache-directory "undo"))))
+  (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
+    (make-directory (concat spacemacs-cache-directory "undo")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

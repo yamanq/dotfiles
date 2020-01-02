@@ -484,6 +484,8 @@ before packages are loaded."
   (global-visual-line-mode t)
   ;; Spacemacs general config
   (setq dotspacemacs-whitespace-cleanup 'changed)
+  ;; Compilation
+  (global-set-key (kbd "<f5>") 'recompile)
   ;; Web mode
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-basic-offset 2

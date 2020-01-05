@@ -87,13 +87,13 @@ export EDITOR=vim
 # Install global NPM packages locally
 NPM_PACKAGES="${HOME}/.npmglobal"
 export PATH="$NPM_PACKAGES/bin:$PATH"
-### Added by the Heroku Toolbelt
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 # Go paths
 export GOPATH="$HOME/go"
 # Ruby paths
 export GEM_HOME="$HOME/.gem"
-export PATH="$GEM_HOME/ruby/2.4.0/bin:$PATH"
+export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
 # Path magics
 export PATH="$HOME/bin:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
 

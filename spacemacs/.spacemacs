@@ -60,6 +60,7 @@ This function should only modify configuration layer settings."
      scheme
      octave
      common-lisp
+     systemd
      ;; Markup
      markdown
      yaml

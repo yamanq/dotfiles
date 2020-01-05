@@ -1,0 +1,10 @@
+[Unit]
+Description=Clean pacman packages cache
+
+[Service]
+Type=oneshot
+
+IOSchedulingClass=idle
+CPUSchedulingPolicy=idle
+
+ExecStart=paccache --remove --uninstalled --keep 3

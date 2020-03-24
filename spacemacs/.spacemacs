@@ -60,7 +60,10 @@ This function should only modify configuration layer settings."
      scheme
      octave
      common-lisp
+     ;; Devops
      systemd
+     ansible
+     nginx
      ;; Markup
      markdown
      yaml

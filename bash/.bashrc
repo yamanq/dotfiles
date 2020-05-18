@@ -24,6 +24,9 @@ HISTFILESIZE=2000000
 # Useful timestamp format
 HISTTIMEFORMAT='%F %T '
 
+# Save history with every command
+export PROMPT_COMMAND='history -a'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

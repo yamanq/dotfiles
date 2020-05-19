@@ -489,6 +489,9 @@ before packages are loaded."
   ;; Spacemacs general config
   (setq dotspacemacs-whitespace-cleanup 'changed)
   (setq winum-scope 'frame-local)
+  ;; Add C-scroll wheel for zoom
+  (global-set-key [C-mouse-4] 'text-scale-increase)
+  (global-set-key [C-mouse-5] 'text-scale-decrease)
   ;; Compilation
   (global-set-key (kbd "<f5>") 'recompile)
   ;; Web mode

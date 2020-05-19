@@ -488,6 +488,7 @@ before packages are loaded."
   (global-visual-line-mode t)
   ;; Spacemacs general config
   (setq dotspacemacs-whitespace-cleanup 'changed)
+  (setq winum-scope 'frame-local)
   ;; Compilation
   (global-set-key (kbd "<f5>") 'recompile)
   ;; Web mode

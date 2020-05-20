@@ -510,6 +510,8 @@ before packages are loaded."
   (setq comment-start "%")
   ;; Org mode
   (setq org-agenda-files (list "~/org/todo.org"))
+  ;;; Pomodoro
+  (setq org-pomodoro-audio-player (executable-find "mpv"))
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))

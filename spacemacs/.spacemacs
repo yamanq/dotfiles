@@ -68,7 +68,8 @@ This function should only modify configuration layer settings."
      markdown
      yaml
      csv
-     org
+     (org :variables
+          org-enable-org-journal-support t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -512,6 +513,9 @@ before packages are loaded."
   (setq org-agenda-files (list "~/org/todo.org"))
   ;;; Pomodoro
   (setq org-pomodoro-audio-player (executable-find "mpv"))
+  ;;; Journal
+  (setq org-journal-dir "~/org/journal/"
+        org-journal-file-format "%Y-%m-%d")
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))

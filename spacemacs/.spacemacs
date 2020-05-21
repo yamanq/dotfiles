@@ -519,6 +519,7 @@ before packages are loaded."
   (add-hook 'org-journal-mode-hook 'spacemacs/toggle-centered-buffer)
   (add-hook 'org-journal-mode-hook
             (lambda () (spacemacs/scale-up-or-down-font-size 5)))
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "j" 'org-journal-new-entry)
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))

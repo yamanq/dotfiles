@@ -516,6 +516,9 @@ before packages are loaded."
   ;;; Journal
   (setq org-journal-dir "~/org/journal/"
         org-journal-file-format "%Y-%m-%d")
+  (add-hook 'org-journal-mode-hook 'spacemacs/toggle-centered-buffer)
+  (add-hook 'org-journal-mode-hook
+            (lambda () (spacemacs/scale-up-or-down-font-size 5)))
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))

@@ -124,3 +124,6 @@ fi
 if [ -f ~/.envvars ]; then
     . "$HOME/.envvars"
 fi
+
+# Ansible configuration
+export ANSIBLE_NOCOWS=1

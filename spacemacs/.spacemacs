@@ -511,6 +511,8 @@ before packages are loaded."
   (setq comment-start "%")
   ;; Org mode
   (setq org-agenda-files (list "~/org/todo.org"))
+  ;;; Indent headings further than default
+  (add-hook 'org-mode-hook 'org-indent-mode)
   ;;; Pomodoro
   (setq org-pomodoro-audio-player (executable-find "mpv"))
   ;;; Journal

@@ -521,7 +521,7 @@ before packages are loaded."
         org-journal-file-format "%Y-%m-%d")
   (add-hook 'org-journal-mode-hook 'spacemacs/toggle-centered-buffer)
   (add-hook 'org-journal-mode-hook
-            (lambda () (spacemacs/scale-up-or-down-font-size 5)))
+            (lambda () (text-scale-set 2)))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "j" 'org-journal-new-entry)
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)

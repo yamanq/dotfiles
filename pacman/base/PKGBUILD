@@ -1,0 +1,23 @@
+# Maintainer: Adel Qalieh <aqalieh95@gmail.com>
+pkgname=adelq-base
+pkgver=1.0
+pkgrel=1
+pkgdesc="Base system configuration for adelq systems"
+arch=('any')
+url="https://github.com/adelq/dotfiles"
+license=('GPL3')
+
+# Base group
+# Explicitly removed from base group: netctl jfsutils reiserfsprogs vi xfsprogs
+depends=(
+    bash bzip2 coreutils cryptsetup device-mapper dhcpcd diffutils e2fsprogs
+    file filesystem findutils gawk gcc-libs gettext glibc grep gzip inetutils
+    iproute2 iputils less licenses linux linux-firmware logrotate lvm2 man-db
+    man-pages mdadm nano pacman pciutils perl procps-ng psmisc s-nail sed shadow
+    sysfsutils systemd-sysvcompat tar texinfo usbutils util-linux which
+)
+
+# Extra general packages and developer tools
+depends+=(
+    sudo pacman-contrib htop zip unzip exfat-utils tmux ripgrep fzf vim
+)

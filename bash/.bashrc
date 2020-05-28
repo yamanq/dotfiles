@@ -113,6 +113,10 @@ ytdl_playlist(){
     youtube-dl --ignore-errors --no-overwrites --format 'bestaudio[ext=webm]' --add-metadata -o "%(playlist_index)s - %(title)s.opus" "$1"
 }
 
+ytdl_audio(){
+    youtube-dl --format 'bestaudio[ext=webm]' --add-metadata -o '%(title)s.opus' "$1"
+}
+
 # virtualenvwrapper
 if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs

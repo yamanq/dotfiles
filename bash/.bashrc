@@ -98,14 +98,6 @@ ytdl_audio(){
     youtube-dl --format 'bestaudio[ext=webm]' --add-metadata -o '%(title)s.opus' "$1"
 }
 
-# virtualenvwrapper
-if [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/Projects
-    export VIRTUALENVWRAPPER_SCRIPT=~/.local/bin/virtualenvwrapper.sh
-    source ~/.local/bin/virtualenvwrapper_lazy.sh
-fi
-
 # Include environment variables
 if [ -f ~/.envvars ]; then
     . "$HOME/.envvars"

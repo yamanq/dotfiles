@@ -70,6 +70,7 @@ This function should only modify configuration layer settings."
      yaml
      csv
      (org :variables
+          org-want-todo-bindings t
           org-enable-org-journal-support t)
      )
 

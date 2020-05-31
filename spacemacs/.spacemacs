@@ -486,9 +486,12 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Emacs general config
-  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+  (setq scroll-margin 8)
+  ; Follow symlinks to files without complaining
   (setq vc-follow-symlinks t)
   (global-visual-line-mode t)
+  ;; Evil config
+  (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   ;; Spacemacs general config
   (setq dotspacemacs-whitespace-cleanup 'changed)
   (setq winum-scope 'frame-local)

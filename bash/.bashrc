@@ -89,6 +89,14 @@ eg(){
     | ${MANPAGER:-${PAGER:-pager -s}}
 }
 
+binstall(){
+    bin="$1"
+    binname=$(basename "$bin")
+    binpath=$(realpath "$bin")
+    chmod u+x "$bin"
+    ln -s "$binpath" "$HOME/bin/${binname}"
+}
+
 # youtube-dl wrappers for downloading audio from youtube
 ytdl_playlist(){
     youtube-dl --ignore-errors --no-overwrites --format 'bestaudio[ext=webm]' --add-metadata -o "%(playlist_index)s - %(title)s.opus" "$1"

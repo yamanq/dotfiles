@@ -487,7 +487,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Emacs general config
   (setq scroll-margin 8)
-  ; Follow symlinks to files without complaining
+  (setq frame-resize-pixelwise t)
+  ;;; Follow symlinks to files without complaining
   (setq vc-follow-symlinks t)
   (global-visual-line-mode t)
   ;; Evil config

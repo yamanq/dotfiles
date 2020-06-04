@@ -515,7 +515,15 @@ before packages are loaded."
   ;; Octave mode
   (setq comment-start "%")
   ;; Org mode
-  (setq org-agenda-files (list "~/org/todo.org"))
+  (setq org-agenda-files (list "~/org/todo.org" "~/org/daily.org" "~/org/notes.org"))
+  ;;; Lifesaver for window management
+  (setq org-agenda-window-setup 'current-window)
+  ;;; Only give 5 days advanced notice
+  (setq org-deadline-warning-days 5)
+  ;;; Only nag for 30 days
+  (setq org-scheduled-past-days 30)
+  ;;; Don't show deadline warning if already scheduled
+  (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
   ;;; Indent headings further than default
   (add-hook 'org-mode-hook 'org-indent-mode)
   ;;; Pomodoro

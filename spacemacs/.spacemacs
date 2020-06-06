@@ -491,6 +491,8 @@ before packages are loaded."
   ;;; Follow symlinks to files without complaining
   (setq vc-follow-symlinks t)
   (global-visual-line-mode t)
+  ;;; Add underscore to be part of words
+  (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; Evil config
   (define-key evil-normal-state-map (kbd ";") 'evil-ex)
   ;; Spacemacs general config

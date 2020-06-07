@@ -529,6 +529,8 @@ before packages are loaded."
   (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
   ;;; Indent headings further than default
   (add-hook 'org-mode-hook 'org-indent-mode)
+  ;;; Capture
+  (add-hook 'org-capture-mode-hook 'evil-insert-state)
   ;;; Pomodoro
   (setq org-pomodoro-audio-player (executable-find "mpv"))
   ;;; Journal
@@ -538,6 +540,9 @@ before packages are loaded."
   (add-hook 'org-journal-mode-hook
             (lambda () (text-scale-set 2)))
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "j" 'org-journal-new-entry)
+
+  ;; Magit
+  (add-hook 'git-commit-mode-hook 'evil-insert-state)
   ;; Persistent undo mode
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-dir (concat spacemacs-cache-directory "undo"))

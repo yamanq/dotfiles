@@ -539,6 +539,7 @@ before packages are loaded."
   (add-hook 'org-journal-mode-hook 'spacemacs/toggle-centered-buffer)
   (add-hook 'org-journal-mode-hook
             (lambda () (text-scale-set 2)))
+  (add-hook 'org-journal-mode-hook 'evil-insert-state)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "j" 'org-journal-new-entry)
 
   ;; Magit

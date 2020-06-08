@@ -533,6 +533,10 @@ before packages are loaded."
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
   ;;; Pomodoro
   (setq org-pomodoro-audio-player (executable-find "mpv"))
+  (defun aq/notify (title message)
+    "Send a notification with TITLE and MESSAGE using `notifications'."
+    (notifications-notify :title title :body message :app-name "Pomodoro"))
+  (advice-add 'org-pomodoro-notify :before #'aq/notify)
   ;;; Journal
   (setq org-journal-dir "~/org/journal/"
         org-journal-file-format "%Y-%m-%d")

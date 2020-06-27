@@ -67,7 +67,9 @@ if ! shopt -oq posix; then
   fi
 fi
 # pass autocompletion
-source /usr/share/bash-completion/completions/pass
+if [ -f /usr/share/bash-completion/completions/pass ]; then
+    source /usr/share/bash-completion/completions/pass
+fi
 
 # Default editor
 export EDITOR=vim

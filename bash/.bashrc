@@ -3,12 +3,11 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
-# History
+###########
+# History #
+###########
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -30,10 +29,6 @@ export PROMPT_COMMAND='history -a'
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -66,50 +61,27 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# pass autocompletion
+source /usr/share/bash-completion/completions/pass
+
+# Default editor
 export EDITOR=vim
+export VISUAL=vim
 
 # Install global NPM packages locally
-NPM_PACKAGES="${HOME}/.npmglobal"
-export PATH="$NPM_PACKAGES/bin:$PATH"
+# NPM_PACKAGES="${HOME}/.npmglobal"
+# export PATH="$NPM_PACKAGES/bin:$PATH"
 # Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 # Go paths
 export GOPATH="$HOME/go"
 # Ruby paths
 export GEM_HOME="$HOME/.gem"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
 # Path magics
-export PATH="$HOME/bin:$GOPATH/bin:$HOME/.local/bin:/opt/genymotion:/opt/nim/bin:~/.nimble/bin:$PATH"
-
-
-# Usage command for examples in man pages
-eg(){
-  MAN_KEEP_FORMATTING=1 man "$@" 2>/dev/null \
-    | sed --quiet --expression='/^E\(\x08.\)X\(\x08.\)\?A\(\x08.\)\?M\(\x08.\)\?P\(\x08.\)\?L\(\x08.\)\?E/{:a;p;n;/^[^ ]/q;ba}' \
-    | ${MANPAGER:-${PAGER:-pager -s}}
-}
-
-binstall(){
-    bin="$1"
-    binname=$(basename "$bin")
-    binpath=$(realpath "$bin")
-    chmod u+x "$bin"
-    ln -s "$binpath" "$HOME/bin/${binname}"
-}
-
-# youtube-dl wrappers for downloading audio from youtube
-ytdl_playlist(){
-    youtube-dl --ignore-errors --no-overwrites --format 'bestaudio[ext=webm]' --add-metadata -o "%(playlist_index)s - %(title)s.opus" "$1"
-}
-
-ytdl_audio(){
-    youtube-dl --format 'bestaudio[ext=webm]' --add-metadata -o '%(title)s.opus' "$1"
-}
+export PATH="$PATH:$HOME/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/bin"
 
 # Include environment variables
 if [ -f ~/.envvars ]; then
     . "$HOME/.envvars"
 fi
-
-# Ansible configuration
-export ANSIBLE_NOCOWS=1

@@ -21,8 +21,29 @@ if [ -x /usr/bin/dircolors ]; then
     }
 fi
 
-# Misc Aliases
-alias more='less'
-
 # After some updates, dolphin breaks
 alias fixdolphin='nohup dbus-launch dolphin &'
+
+# Misc Aliases
+
+alias more='less'
+alias nikhilencrypt='gpg --encrypt --armor -r nikhilsd@protonmail.com | xclip -selection clipboard'
+alias fzf-pass='pass -c $(pass git ls-files '*.gpg' | sed 's/.gpg$//' | fzf --reverse --header="Select a password:")'
+alias cdtemp='cd $(mktemp -d)'
+
+function conda_start {
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/yaman/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/yaman/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/yaman/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/yaman/miniconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+}

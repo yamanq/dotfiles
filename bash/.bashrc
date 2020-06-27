@@ -5,9 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-###########
-# History #
-###########
+# History
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -17,14 +15,15 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000000
-HISTFILESIZE=2000000
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # Useful timestamp format
 HISTTIMEFORMAT='%F %T '
 
 # Save history with every command
 export PROMPT_COMMAND='history -a'
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -75,11 +74,12 @@ export VISUAL=vim
 # export PATH="/usr/local/heroku/bin:$PATH"
 # Go paths
 export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 # Ruby paths
 export GEM_HOME="$HOME/.gem"
-export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
+export PATH="$GEM_HOME/ruby/2.7.0/bin:$PATH"
 # Path magics
-export PATH="$PATH:$HOME/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/bin:~/.cargo/bin:$PATH"
 
 # Include environment variables
 if [ -f ~/.envvars ]; then

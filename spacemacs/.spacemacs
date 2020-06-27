@@ -38,6 +38,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+
      ;; General
      helm
      auto-completion
@@ -533,14 +534,17 @@ before packages are loaded."
 
   ;; Various org settings
   (setq
-   org-directory (quote "~/Org")
+   org-directory (quote "~/org")
 
    ;; agenda
-   org-agenda-files '("~/Org/main.org" "~/Org/clubs.org" "~/Org/W2020")
+   org-agenda-files '("~/org/main.org" "~/org/clubs.org" "~/org/todo.org" "~/org/W2020")
+   org-extend-today-until 4
+   org-use-effective-time t
    org-agenda-skip-deadline-prewarning-if-scheduled t
    org-agenda-skip-scheduled-if-done t
    org-agenda-skip-deadline-if-done t
    org-deadline-warning-days 5
+
    ;; org-habit
    org-habit-following-days 1
    org-habit-graph-column 60
@@ -564,19 +568,23 @@ before packages are loaded."
    org-todo-keywords (quote ((sequence "T" "D")))
    org-capture-templates
    '(
-     ("t" "Todo" entry (file+headline "~/Org/todo.org" "Unfiled")
+     ("t" "Todo" entry (file+headline "~/org/todo.org" "Unfiled")
       "* T %?\n%i\n%u")
-     ("l" "Link" entry (file+headline "~/Org/links.org" "Unfiled")
+     ("l" "Link" entry (file+headline "~/org/links.org" "Unfiled")
       "* %?\n%i\n%u")
      ("n" "Note" entry (file org-default-notes-file)
       "* %?\nEntered on %U\n%i")
-     ("d" "Dream" entry (file+datetree "~/Org/dreams.org")
+     ("d" "Dream" entry (file+datetree "~/org/dreams.org")
       "* %?\nEntered on %U\n%i")
      )
    org-refile-targets '((nil :maxlevel . 9))
-
    )
 
+  ;; Rust
+  (setq racer-rust-src-path
+        (concat (string-trim
+                 (shell-command-to-string "rustc --print sysroot"))
+                "/lib/rustlib/src/rust/src"))
 
   ;; Macros
   (global-set-key [C-mouse-4] 'text-scale-increase)

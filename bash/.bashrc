@@ -21,8 +21,8 @@ shopt -s cmdhist
 HISTIGNORE='bg:fg:history'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=-1
-HISTFILESIZE=-1
+HISTSIZE=100000000000000000
+HISTFILESIZE=10000000000000000000
 
 # Useful timestamp format
 HISTTIMEFORMAT='%F %T '

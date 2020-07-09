@@ -518,10 +518,6 @@ before packages are loaded."
   ;; Enable visual-line-mode (wrapping text) on .txt and .org
   (add-hook 'text-mode-hook 'visual-line-mode)
 
-  ;; Enable nice indentation on org files by default
-  (add-hook 'org-mode-hook 'org-indent-mode)
-
-
   ;; latex options
   (with-eval-after-load 'org
     (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
@@ -559,6 +555,9 @@ before packages are loaded."
    ;; org headlines
    org-superstar-cycle-headline-bullets nil
    org-superstar-headline-bullets-list (quote ("⚫"))
+
+   ;; Enable nice indentation on org files by default
+   org-startup-indented t
 
    org-enforce-todo-checkbox-dependencies nil
    org-level-color-stars-only nil

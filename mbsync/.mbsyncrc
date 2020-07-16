@@ -1,0 +1,70 @@
+IMAPAccount main-migadu
+# Address to connect to
+Host imap.migadu.com
+User yaman@qalieh.com
+PassCmd "pass emails/migadu.com/yaman@qalieh.com"
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore main-migadu-remote
+Account main-migadu
+
+MaildirStore main-migadu-local
+Path ~/.mail/yaman@qalieh.com/
+Inbox ~/.mail/yaman@qalieh.com/Inbox
+Subfolders Verbatim
+
+Channel main-migadu
+Master :main-migadu-remote:
+Slave :main-migadu-local:
+Patterns *
+Create Both
+SyncState *
+
+IMAPAccount main-gmail
+Host imap.gmail.com
+User ybq987@gmail.com
+PassCmd "pass emails/isync-ybq987@gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+PipelineDepth 50
+
+IMAPStore main-gmail-remote
+Account main-gmail
+
+MaildirStore main-gmail-local
+Path ~/.mail/ybq987@gmail.com/
+Inbox ~/.mail/ybq987@gmail.com/Inbox
+Subfolders Verbatim
+
+Channel main-gmail
+Master :main-gmail-remote:
+Slave :main-gmail-local:
+Patterns "INBOX" "[Gmail]/All Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
+Create Both
+SyncState *
+
+IMAPAccount umich-gmail
+Host imap.gmail.com
+User yamanq@umich.edu
+PassCmd "pass emails/yamanq@umich.edu"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+PipelineDepth 50
+
+IMAPStore umich-gmail-remote
+Account umich-gmail
+
+MaildirStore umich-gmail-local
+Path ~/.mail/yamanq@umich.edu/
+Inbox ~/.mail/yamanq@umich.edu/Inbox
+Subfolders Verbatim
+
+Channel umich-gmail
+Master :umich-gmail-remote:
+Slave :umich-gmail-local:
+Patterns "INBOX" "[Gmail]/All Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
+Create Both
+SyncState *

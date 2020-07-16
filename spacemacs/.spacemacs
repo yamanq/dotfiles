@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      games
      lsp
+     mu4e
 
      ;; Text Languages
      markdown
@@ -533,7 +534,7 @@ before packages are loaded."
    org-directory (quote "~/org")
 
    ;; agenda
-   org-agenda-files '("~/org/main.org" "~/org/clubs.org" "~/org/todo.org" "~/org/W2020")
+   org-agenda-files '("~/org/main.org" "~/org/clubs.org" "~/org/todo.org" "~/org/W2020" "~/org/F2020")
    org-extend-today-until 4
    org-use-effective-time t
    org-agenda-skip-deadline-prewarning-if-scheduled t
@@ -584,6 +585,145 @@ before packages are loaded."
         (concat (string-trim
                  (shell-command-to-string "rustc --print sysroot"))
                 "/lib/rustlib/src/rust/src"))
+
+  ;; mu4e
+  (setq mu4e-maildir "~/.mail"
+        mu4e-enable-notifications t
+
+        ;; Syncing
+        mu4e-get-mail-command "mbsync -a"
+        mu4e-update-interval nil
+        ;; mu4e-index-cleanup nil
+        ;; mu4e-index-lazy-check t
+        mu4e-change-filenames-when-moving t
+
+        ;; Reading Messages
+        mu4e-headers-include-related t
+        mu4e-view-show-images t
+        mu4e-view-show-addresses t
+        mu4e-view-prefer-html t
+        shr-color-visible-luminance-min 80
+
+        ;; Composing Messages
+        mu4e-compose-signature-auto-include nil
+
+        ;; smtp
+        mail-user-agent 'mu4e-user-agent
+        message-send-mail-function 'smtpmail-send-it
+        )
+
+  ;; Queue Messages
+  ;; (setq smtpmail-queue-mail t  ;; start in queuing mode
+  ;;       smtpmail-queue-dir   "~/Maildir/queue/cur")
+
+  (setq mu4e-headers-include-related t)
+
+  ;; Redirect to imagemagick if image cannot be displayed
+  (when (fboundp 'imagemagick-register-types)
+    (imagemagick-register-types))
+
+  ;; Enable Desktop notifications
+  (with-eval-after-load 'mu4e-alert
+    (mu4e-alert-set-default-style 'notifications))
+
+  ;; Read own encrypted messages
+  (with-eval-after-load 'epg-config
+    (setq mml2015-use 'epg
+          epg-user-id "gpg_key_id"
+          mml-secure-openpgp-encrypt-to-self t))
+
+  ;; Set Contexts and Bookmarks
+  (with-eval-after-load 'mu4e
+    (setq mu4e-contexts
+          `( ,(make-mu4e-context
+               :name "main"
+               ;; we match based on the maildir of the message
+               :match-func (lambda (msg)
+                             (when msg
+                               (string-match-p "^/yaman@qalieh.com" (mu4e-message-field msg :maildir))))
+               :vars '( ( user-mail-address . "yaman@qalieh.com")
+                        ( user-full-name . "Yaman Qalieh" )
+
+                        ( mu4e-sent-folder . "/yaman@qalieh.com/Sent" )
+                        ( mu4e-drafts-folder . "/yaman@qalieh.com/Drafts" )
+                        ( mu4e-trash-folder . "/yaman@qalieh.com/Trash" )
+                        ( mu4e-refile-folder . "/yaman@qalieh.com/Archive" )
+
+                        ( mu4e-compose-signature . nil)
+                        ( smtpmail-smtp-server . "smtp.migadu.com" )
+                        ( smtpmail-default-smtp-server . "smtp.migadu.com" )
+                        ( smtpmail-smtp-service . 587 )
+                        ( smtpmail-stream-type . starttls )
+                        ( mu4e-sent-messages-behavior 'sent )
+                        ))
+             ,(make-mu4e-context
+               :name "gmail"
+               ;; we match based on the maildir of the message
+               :match-func (lambda (msg)
+                             (when msg
+                               (string-match-p "^/ybq987@gmail.com" (mu4e-message-field msg :maildir))))
+               :vars '( ( user-mail-address . "ybq987@gmail.com" )
+                        ( user-full-name . "Yaman Qalieh" )
+
+                        ( mu4e-sent-folder . "/ybq987@gmail.com/[Gmail]/All Mail" )
+                        ( mu4e-drafts-folder . "/ybq987@gmail.com/[Gmail]/Drafts" )
+                        ( mu4e-trash-folder . "/ybq987@gmail.com/[Gmail]/Trash" )
+                        ( mu4e-refile-folder . "/ybq987@gmail.com/[Gmail]/All Mail" )
+
+                        ( mu4e-compose-signature . nil )
+                        ( smtpmail-smtp-server "smtp.gmail.com" )
+                        ( smtpmail-default-smtp-server . "smtp.gmail.com" )
+                        ( smtpmail-smtp-service . 465 )
+                        ( smtpmail-stream-type . ssl )
+                        ( mu4e-sent-messages-behavior 'delete )
+                        ))
+
+             ,(make-mu4e-context
+               :name "umich"
+               ;; we match based on the maildir of the message
+               :match-func (lambda (msg)
+                             (when msg
+                               (string-match-p "^/yamanq@umich.edu" (mu4e-message-field msg :maildir))))
+               :vars '( ( user-mail-address . "yamanq@umich.edu" )
+                        ( user-full-name . "Yaman Qalieh" )
+
+                        ( mu4e-sent-folder . "/yamanq@umich.edu/[Gmail]/All Mail" )
+                        ( mu4e-drafts-folder . "/yamanq@umich.edu/[Gmail]/Drafts" )
+                        ( mu4e-trash-folder . "/yamanq@umich.edu/[Gmail]/Trash" )
+                        ( mu4e-refile-folder . "/yamanq@umich.edu/[Gmail]/All Mail" )
+
+                        ( mu4e-compose-signature . nil)
+                        ( smtpmail-smtp-server . "smtp.mail.umich.edu" )
+                        ( smtpmail-default-smtp-server . "smtp.mail.umich.edu" )
+                        ( smtpmail-smtp-service . 465 )
+                        ( smtpmail-stream-type . ssl )
+                        ( mu4e-sent-messages-behavior 'delete )
+                        ))
+             ))
+    ;; Set bookmarks (prepending)
+    (add-to-list 'mu4e-bookmarks
+                 '( :name  "Inbox"
+                           :query "maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox"
+                           :key   ?i))
+
+    ;; Set bookmarks (Appending)
+    ;; Remove third 't' argument for prepending
+    (add-to-list 'mu4e-bookmarks
+                 '( :name  "Big messages"
+                           :query "size:5M..500M"
+                           :key   ?B)
+                 t)
+    )
+  ;; set `mu4e-context-policy` and `mu4e-compose-policy` to tweak when mu4e should
+  ;; guess or ask the correct context, e.g.
+
+  ;; start with the first (default) context;
+  ;; default is to ask-if-none (ask when there's no context yet, and none match)
+  (setq mu4e-context-policy 'pick-first)
+
+  ;; compose with the current context is no context matches;
+  ;; default is to ask
+  (setq mu4e-compose-context-policy nil)
 
   ;; Macros
   (global-set-key [C-mouse-4] 'text-scale-increase)

@@ -729,7 +729,4 @@ before packages are loaded."
   (global-set-key [C-mouse-4] 'text-scale-increase)
   (global-set-key [C-mouse-5] 'text-scale-decrease)
   (global-set-key (kbd "<f5>") 'recompile)
-
-  (fset 'yaman-c++-assert-requires-comment
-        (lambda (&optional arg) "Converts requires comment to assert clause. (eecs)" (interactive "p") (kmacro-exec-ring-item (quote ([86 32 59 118 36 104 115 41 105 97 115 115 101 114 116 escape 65 59 escape 106 1 107] 0 "%d")) arg)))
   )

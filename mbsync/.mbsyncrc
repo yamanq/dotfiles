@@ -30,6 +30,7 @@ PassCmd "pass emails/isync-ybq987@gmail.com"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 PipelineDepth 50
+Timeout 100
 
 IMAPStore main-gmail-remote
 Account main-gmail

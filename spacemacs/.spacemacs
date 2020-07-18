@@ -601,7 +601,7 @@ before packages are loaded."
         mu4e-headers-include-related t
         mu4e-view-show-images t
         mu4e-view-show-addresses t
-        mu4e-view-prefer-html t
+        mu4e-view-prefer-html nil
         shr-color-visible-luminance-min 80
 
         ;; Composing Messages
@@ -616,8 +616,6 @@ before packages are loaded."
   ;; (setq smtpmail-queue-mail t  ;; start in queuing mode
   ;;       smtpmail-queue-dir   "~/Maildir/queue/cur")
 
-  (setq mu4e-headers-include-related t)
-
   ;; Redirect to imagemagick if image cannot be displayed
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
@@ -629,7 +627,7 @@ before packages are loaded."
   ;; Read own encrypted messages
   (with-eval-after-load 'epg-config
     (setq mml2015-use 'epg
-          epg-user-id "gpg_key_id"
+          epg-user-id "79C1142AF079B5C3C8FDC866997C33F3EFDC988C"
           mml-secure-openpgp-encrypt-to-self t))
 
   ;; Set Contexts and Bookmarks
@@ -654,7 +652,7 @@ before packages are loaded."
                         ( smtpmail-default-smtp-server . "smtp.migadu.com" )
                         ( smtpmail-smtp-service . 587 )
                         ( smtpmail-stream-type . starttls )
-                        ( mu4e-sent-messages-behavior 'sent )
+                        ( mu4e-sent-messages-behavior . sent )
                         ))
              ,(make-mu4e-context
                :name "gmail"
@@ -671,11 +669,11 @@ before packages are loaded."
                         ( mu4e-refile-folder . "/ybq987@gmail.com/[Gmail]/All Mail" )
 
                         ( mu4e-compose-signature . nil )
-                        ( smtpmail-smtp-server "smtp.gmail.com" )
+                        ( smtpmail-smtp-server . "smtp.gmail.com" )
                         ( smtpmail-default-smtp-server . "smtp.gmail.com" )
                         ( smtpmail-smtp-service . 465 )
                         ( smtpmail-stream-type . ssl )
-                        ( mu4e-sent-messages-behavior 'delete )
+                        ( mu4e-sent-messages-behavior . sent )
                         ))
 
              ,(make-mu4e-context
@@ -697,7 +695,7 @@ before packages are loaded."
                         ( smtpmail-default-smtp-server . "smtp.mail.umich.edu" )
                         ( smtpmail-smtp-service . 465 )
                         ( smtpmail-stream-type . ssl )
-                        ( mu4e-sent-messages-behavior 'delete )
+                        ( mu4e-sent-messages-behavior . sent )
                         ))
              ))
     ;; Set bookmarks (prepending)

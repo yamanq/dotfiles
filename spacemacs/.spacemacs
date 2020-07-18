@@ -510,14 +510,16 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Uncategorized
 
-  ;; Highlight long lines
-  (add-hook 'prog-mode-hook 'column-enforce-mode)
-
   (spacemacs/set-leader-keys "pu" 'projectile-run-project)
 
   ;; org-mode
   ;; Enable visual-line-mode (wrapping text) on .txt and .org
-  (add-hook 'text-mode-hook 'visual-line-mode)
+  ;; (add-hook 'text-mode-hook 'visual-line-mode)
+  (global-visual-line-mode t)
+
+  ;;; Follow symlinks to files without complaining
+  (setq vc-follow-symlinks t)
+
 
   ;; latex options
   (with-eval-after-load 'org
@@ -615,6 +617,9 @@ before packages are loaded."
   ;; Queue Messages
   ;; (setq smtpmail-queue-mail t  ;; start in queuing mode
   ;;       smtpmail-queue-dir   "~/Maildir/queue/cur")
+
+
+  (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode "e" 'mml-secure-message-encrypt-pgp)
 
   ;; Redirect to imagemagick if image cannot be displayed
   (when (fboundp 'imagemagick-register-types)

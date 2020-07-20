@@ -632,8 +632,7 @@ before packages are loaded."
   ;; Read own encrypted messages
   (with-eval-after-load 'epg-config
     (setq mml2015-use 'epg
-          epg-user-id "79C1142AF079B5C3C8FDC866997C33F3EFDC988C"
-          mml-secure-openpgp-encrypt-to-self t))
+          mml-secure-openpgp-encrypt-to-self (list "ybq987@gmail.com")))
 
   ;; Set Contexts and Bookmarks
   (with-eval-after-load 'mu4e

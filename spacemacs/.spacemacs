@@ -590,7 +590,11 @@ before packages are loaded."
 
   ;; mu4e
   (setq mu4e-maildir "~/.mail"
+
+        ;; Notifications
         mu4e-enable-notifications t
+        mu4e-alert-style 'libnotify
+        mu4e-alert-interesting-mail-query "flag:unread AND (maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox)"
 
         ;; Syncing
         mu4e-get-mail-command "mbsync -a"
@@ -626,8 +630,8 @@ before packages are loaded."
     (imagemagick-register-types))
 
   ;; Enable Desktop notifications
-  (with-eval-after-load 'mu4e-alert
-    (mu4e-alert-set-default-style 'notifications))
+  ;; (with-eval-after-load 'mu4e-alert
+  ;;   (mu4e-alert-set-default-style 'libnotify))
 
   ;; Read own encrypted messages
   (with-eval-after-load 'epg-config
@@ -702,19 +706,53 @@ before packages are loaded."
                         ( mu4e-sent-messages-behavior . sent )
                         ))
              ))
-    ;; Set bookmarks (prepending)
-    (add-to-list 'mu4e-bookmarks
-                 '( :name  "Inbox"
-                           :query "maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox"
-                           :key   ?i))
 
-    ;; Set bookmarks (Appending)
-    ;; Remove third 't' argument for prepending
-    (add-to-list 'mu4e-bookmarks
-                 '( :name  "Big messages"
-                           :query "size:5M..500M"
-                           :key   ?B)
-                 t)
+    ;; Bookmarks
+
+    ;; List of pre-defined queries that are shown on the main screen.
+
+    ;;   Each of the list elements is a plist with at least:
+    ;;   :name  - the name of the query
+    ;;   :query - the query expression
+    ;;   :key   - the shortcut key.
+
+    ;;   Optionally, you add the following:
+    ;;   :hide  - if t, bookmark is hdden from the main-view and speedbar.
+    ;;   :hide-unread - do not show the counts of unread/total number
+    ;;   of matches for the query. This can be useful if a bookmark uses
+    ;;   a very slow query. :hide-unread is implied from :hide.
+
+    (setq mu4e-bookmarks
+      '(( :name  "Inbox"
+          :query "maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox"
+          :key   ?i)
+
+        ( :name  "Unread messages"
+          :query "flag:unread AND (maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox)"
+          :key ?u)
+
+        ( :name "Today's messages"
+          :query "date:today..now"
+          :hide-unread t
+          :key ?t)
+
+        ( :name "Last 7 days"
+          :query "date:7d..now"
+          :hide-unread t
+          :key ?w)
+
+        ( :name "Messages with images"
+          :query "mime:image/*"
+          :hide-unread t
+          :key ?p)
+
+        ( :name  "Big messages"
+          :query "size:5M..500M"
+          :hide-unread t
+          :key   ?B)
+
+        )
+      )
     )
   ;; set `mu4e-context-policy` and `mu4e-compose-policy` to tweak when mu4e should
   ;; guess or ask the correct context, e.g.

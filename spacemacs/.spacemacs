@@ -600,6 +600,7 @@ before packages are loaded."
         mu4e-enable-notifications t
         mu4e-alert-style 'libnotify
         mu4e-alert-interesting-mail-query "flag:unread AND (maildir:/yaman@qalieh.com/Inbox OR maildir:/yamanq@umich.edu/Inbox OR maildir:/ybq987@gmail.com/Inbox)"
+        mu4e-alert-email-notification-types '(count)
 
         ;; Syncing
         mu4e-get-mail-command "mbsync -a"
@@ -633,10 +634,6 @@ before packages are loaded."
   ;; Redirect to imagemagick if image cannot be displayed
   (when (fboundp 'imagemagick-register-types)
     (imagemagick-register-types))
-
-  ;; Enable Desktop notifications
-  ;; (with-eval-after-load 'mu4e-alert
-  ;;   (mu4e-alert-set-default-style 'libnotify))
 
   ;; Read own encrypted messages
   (with-eval-after-load 'epg-config

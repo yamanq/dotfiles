@@ -771,4 +771,5 @@ before packages are loaded."
   (global-set-key [C-mouse-4] 'text-scale-increase)
   (global-set-key [C-mouse-5] 'text-scale-decrease)
   (global-set-key (kbd "<f5>") 'recompile)
+  (spacemacs/set-leader-keys "Fr" 'set-frame-name)
   )

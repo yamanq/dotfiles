@@ -69,8 +69,7 @@ This function should only modify configuration layer settings."
      ess
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
-            c-c++-enable-clang-support t
-            clang-format-style "Google")
+            c-c++-enable-clang-support t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -519,6 +518,12 @@ before packages are loaded."
 
   ;;; Follow symlinks to files without complaining
   (setq vc-follow-symlinks t)
+
+  ;; lsp-mode
+  ;; Disable documentation overlap
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-sideline-enable t)
+  (setq lsp-enable-symbol-highlighting nil)
 
 
   ;; latex options

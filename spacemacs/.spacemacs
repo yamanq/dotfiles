@@ -522,6 +522,9 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Uncategorized
 
+  ;; Temporary fix until https://github.com/syl20bnr/evil-iedit-state/issues/27 is closed
+  (defalias 'iedit-cleanup 'iedit-lib-cleanup)
+
   (spacemacs/set-leader-keys "pu" 'projectile-run-project)
 
   ;; org-mode

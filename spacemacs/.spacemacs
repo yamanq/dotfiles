@@ -633,10 +633,10 @@ before packages are loaded."
         mu4e-change-filenames-when-moving t
 
         ;; Reading Messages
-        mu4e-headers-include-related t
+        mu4e-headers-include-related nil
         mu4e-view-show-images t
         mu4e-view-show-addresses t
-        mu4e-view-prefer-html nil
+        ;; mu4e-view-prefer-html nil
         shr-color-visible-luminance-min 80
 
         ;; Composing Messages

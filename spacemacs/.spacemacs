@@ -588,6 +588,7 @@ before packages are loaded."
    org-agenda-window-setup 'current-window
    org-modules (quote
                 (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-mouse org-rmail org-w3m))
+
    org-todo-keywords (quote ((sequence "T" "D")))
    org-capture-templates
    '(
@@ -602,6 +603,12 @@ before packages are loaded."
      )
    org-refile-targets '((nil :maxlevel . 9))
    )
+
+  (setq org-file-apps
+        '((auto-mode . emacs)
+          ("\\.mm\\'" . default)
+          ("\\.x?html?\\'" . default)
+          ("\\.pdf\\'" . "setsid -w xdg-open \"%s\"")))
 
   ;; Rust
   (setq racer-rust-src-path

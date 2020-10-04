@@ -610,6 +610,12 @@ before packages are loaded."
           ("\\.x?html?\\'" . default)
           ("\\.pdf\\'" . "setsid -w xdg-open \"%s\"")))
 
+  ;; Org-pomodoro
+  (defun aq/notify (title message)
+    "Send a notification with TITLE and MESSAGE using `notifications'."
+    (notifications-notify :title title :body message :app-name "Pomodoro"))
+  (advice-add 'org-pomodoro-notify :before #'aq/notify)
+
   ;; Rust
   (setq racer-rust-src-path
         (concat (string-trim

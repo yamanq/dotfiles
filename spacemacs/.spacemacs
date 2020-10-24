@@ -523,6 +523,9 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; Uncategorized
 
+  ;; Fix emacs full screen
+  (setq frame-resize-pixelwise t)
+
   ;; Temporary fix until https://github.com/syl20bnr/evil-iedit-state/issues/27 is closed
   (defalias 'iedit-cleanup 'iedit-lib-cleanup)
 

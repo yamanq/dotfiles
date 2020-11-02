@@ -506,6 +506,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq custom-file "~/.emacs.d/.cache/.custom-settings")
   (load custom-file)
   (setq byte-compile-warnings '(cl-functions))
+
+  ;; Fix emacs frame numbering
+  (setq winum-scope 'frame-local)
   )
 
 (defun dotspacemacs/user-load ()
@@ -525,9 +528,6 @@ before packages are loaded."
 
   ;; Fix emacs full screen
   (setq frame-resize-pixelwise t)
-
-  ;; Fix emacs frame numbering
-  (setq winum-scope 'frame-local)
 
   ;; Temporary fix until https://github.com/syl20bnr/evil-iedit-state/issues/27 is closed
   (defalias 'iedit-cleanup 'iedit-lib-cleanup)

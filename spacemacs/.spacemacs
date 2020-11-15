@@ -650,7 +650,8 @@ before packages are loaded."
         mu4e-view-show-images t
         mu4e-view-show-addresses t
         ;; mu4e-view-prefer-html nil
-        shr-color-visible-luminance-min 80
+        shr-color-visible-luminance-min 70
+        shr-use-colors nil
 
         ;; Composing Messages
         mu4e-compose-signature-auto-include nil

@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      games
      ;; lsp
      mu4e
+     debug
 
      ;; Text Languages
      markdown

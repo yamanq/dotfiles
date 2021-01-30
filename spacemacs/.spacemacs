@@ -565,7 +565,7 @@ before packages are loaded."
    org-directory (quote "~/org")
 
    ;; agenda
-   org-agenda-files '("~/org/main.org" "~/org/clubs.org" "~/org/todo.org" "~/org/W2020" "~/org/F2020")
+   org-agenda-files '("~/org/main.org" "~/org/clubs.org" "~/org/todo.org" "~/org/F2020" "~/org/W2021")
    org-extend-today-until 4
    org-use-effective-time t
    org-agenda-skip-deadline-prewarning-if-scheduled t

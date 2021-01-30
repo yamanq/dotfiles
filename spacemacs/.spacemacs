@@ -618,6 +618,10 @@ before packages are loaded."
           ("\\.x?html?\\'" . default)
           ("\\.pdf\\'" . "setsid -w xdg-open \"%s\"")))
 
+  ;; Latex open in Okular
+  (with-eval-after-load 'tex
+    (add-to-list 'TeX-view-program-selection '(output-pdf "Okular")))
+
   ;; Org-pomodoro
   (defun aq/notify (title message)
     "Send a notification with TITLE and MESSAGE using `notifications'."

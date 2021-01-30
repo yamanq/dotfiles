@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      games
-     lsp
+     ;; lsp
      mu4e
 
      ;; Text Languages

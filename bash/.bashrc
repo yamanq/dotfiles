@@ -93,3 +93,8 @@ export PATH="$HOME/bin:$HOME/.local/bin:$HOME/bin:~/.cargo/bin:$PATH"
 if [ -f ~/.envvars ]; then
     . "$HOME/.envvars"
 fi
+
+# Include custom config
+if [ -f ~/.bashrc.local ]; then
+    . "$HOME/.bashrc.local"
+fi

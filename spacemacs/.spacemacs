@@ -71,6 +71,7 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
             c-c++-enable-clang-support t)
+     php
      )
 
    ;; List of additional packages that will be installed without being

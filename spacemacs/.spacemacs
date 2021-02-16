@@ -646,7 +646,7 @@ before packages are loaded."
 
         ;; Syncing
         mu4e-get-mail-command "true"
-        mu4e-update-interval nil
+        mu4e-update-interval 300
         ;; mu4e-index-cleanup nil
         ;; mu4e-index-lazy-check t
         mu4e-change-filenames-when-moving t

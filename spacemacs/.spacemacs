@@ -645,7 +645,7 @@ before packages are loaded."
         mu4e-alert-email-notification-types '(count)
 
         ;; Syncing
-        mu4e-get-mail-command "mbsync -a"
+        mu4e-get-mail-command "true"
         mu4e-update-interval nil
         ;; mu4e-index-cleanup nil
         ;; mu4e-index-lazy-check t

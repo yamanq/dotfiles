@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      games
-     ;; lsp
+     lsp
      mu4e
      debug
 
@@ -83,6 +83,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
                                       snakemake-mode
+                                      vterm
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -570,6 +571,7 @@ before packages are loaded."
   (setq lsp-ui-sideline-enable t)
   (setq lsp-enable-symbol-highlighting nil)
 
+  (editorconfig-mode t)
 
   ;; latex options
   (with-eval-after-load 'org

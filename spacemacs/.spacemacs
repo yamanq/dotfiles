@@ -53,7 +53,8 @@ This function should only modify configuration layer settings."
 
      ;; Text Languages
      markdown
-     org
+     (org :variables
+          org-enable-roam-support t)
      latex
      yaml
      csv
@@ -582,6 +583,9 @@ before packages are loaded."
     (setq org-latex-packages-alist '(("" "chemfig" t)))
     (setq org-preview-latex-default-process 'dvisvgm)
     )
+
+  ;; org-roam
+  (setq org-roam-directory "~/org/roam")
 
   ;; Various org settings
   (setq

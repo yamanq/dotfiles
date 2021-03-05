@@ -839,7 +839,7 @@ before packages are loaded."
   (global-set-key [C-mouse-5] 'text-scale-decrease)
   (global-set-key (kbd "<f5>") 'recompile)
   (spacemacs/set-leader-keys "Fr" 'set-frame-name)
-  (spacemacs/set-leader-keys "fv" 'revert-buffer)
+  (spacemacs/set-leader-keys "fV" 'revert-buffer)
 
   )
 

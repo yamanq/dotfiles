@@ -30,6 +30,7 @@ alias more='less'
 alias nikhilencrypt='gpg --encrypt --armor -r nikhilsd@protonmail.com | xclip -selection clipboard'
 alias fzf-pass='pass -c $(pass git ls-files '*.gpg' | sed 's/.gpg$//' | fzf --reverse --header="Select a password:")'
 alias cdtemp='cd $(mktemp -d)'
+alias history_cmd_only='HISTTIMEFORMAT="" history | cut -c 8- | less'
 
 function conda_start {
     # >>> conda initialize >>>

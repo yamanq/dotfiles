@@ -17,8 +17,8 @@ Inbox ~/.mail/yaman@qalieh.com/Inbox
 Subfolders Verbatim
 
 Channel main-migadu
-Master :main-migadu-remote:
-Slave :main-migadu-local:
+Far :main-migadu-remote:
+Near :main-migadu-local:
 Patterns *
 Create Both
 SyncState *
@@ -41,8 +41,8 @@ Inbox ~/.mail/ybq987@gmail.com/Inbox
 Subfolders Verbatim
 
 Channel main-gmail
-Master :main-gmail-remote:
-Slave :main-gmail-local:
+Far :main-gmail-remote:
+Near :main-gmail-local:
 Patterns "INBOX" "[Gmail]/All Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 SyncState *
@@ -64,8 +64,8 @@ Inbox ~/.mail/yamanq@umich.edu/Inbox
 Subfolders Verbatim
 
 Channel umich-gmail
-Master :umich-gmail-remote:
-Slave :umich-gmail-local:
+Far :umich-gmail-remote:
+Near :umich-gmail-local:
 Patterns "INBOX" "[Gmail]/All Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 SyncState *
